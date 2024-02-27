@@ -5,24 +5,30 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/24 18:48:24 by hyungdki          #+#    #+#              #
-#    Updated: 2024/02/27 20:45:05 by hyungdki         ###   ########.fr        #
+#    Created: 2024/02/27 10:17:21 by hyungdki          #+#    #+#              #
+#    Updated: 2024/02/27 20:45:27 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:bullseye
 
-COPY ./conf/run.sh /
-
 RUN apt update -y \
-	&& apt install -y nginx \
-                    openssl \
-                    dumb-init \
+	&& apt install -y dumb-init \
                     vim \
                     procps \
                     dnsutils \
                     iputils-ping \
                     net-tools \
-  && chmod +x /run.sh
+					php \
+					php-bcmath \
+					php-curl \
+					php-imagick \
+					php-intl \
+					php-json \
+					php-mbstring \
+					php-mysql \
+					php-xml \
+					php-zip \
+					php-fpm \
+					php-cli
 
-CMD ["/usr/bin/dumb-init", "--", "/run.sh"]
