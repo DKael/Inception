@@ -6,8 +6,7 @@ services:
     build: ./requirements/nginx
     image: nginx:0
     ports:
-      - "80:80"
       - "443:443"
     env_file:
       - .env
-    #restart: always
+    restart: always
