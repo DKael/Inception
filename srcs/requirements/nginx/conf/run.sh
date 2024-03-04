@@ -7,12 +7,20 @@ if [ ! -e /etc/nginx/conf.d/default.conf ]; then
 
     server_name $DOMAIN_NAME www.$DOMAIN_NAME;
     root /var/www/html;
-    index index.html index.htm index.nginx-debian.html;
-    
+    index index.php;
+
     ssl_protocols TLSv1.3;
     ssl_certificate $CERT_FILE;
-    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key; 
-}" > /etc/nginx/conf.d/default.conf
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/conf.d/default.conf
+    
+  echo '
+    location ~ ^/.+\.php(/|$) {
+      try_files $uri =404;
+      fastcgi_pass wordpress:9000;
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}' >> /etc/nginx/conf.d/default.conf
 fi
 
 if [ ! -e $CERT_FILE -o ! -e /etc/ssl/private/nginx-selfsigned.key ]; then

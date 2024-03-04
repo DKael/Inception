@@ -6,7 +6,7 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/24 22:27:49 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/02 21:53:37 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/04 20:08:53 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ up :
 	@docker-compose -f ./srcs/docker-compose.yaml up -d
 
 down : 
-	@docker-compose -f ./srcs/docker-compose.yaml down
+	@docker-compose -f ./srcs/docker-compose.yaml down -v --rmi all
 
 start : 
 	@docker-compose -f ./srcs/docker-compose.yaml start

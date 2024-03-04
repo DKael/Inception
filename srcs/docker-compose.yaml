@@ -15,7 +15,7 @@ services:
       - inception_network
     volumes:
       - wordpress_volume:/var/www/html
-    #restart: always
+    restart: always
 
   wordpress:
     container_name: wordpress
@@ -29,7 +29,7 @@ services:
       - inception_network
     volumes:
       - wordpress_volume:/var/www/html
-    #restart: always
+    restart: always
 
   mariadb:
     container_name: mariadb
@@ -41,7 +41,7 @@ services:
       - inception_network
     volumes:
       - mariadb_volume:/var/lib/mysql
-    #restart: always
+    restart: always
 
 
 networks:

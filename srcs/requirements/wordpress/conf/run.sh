@@ -26,6 +26,8 @@ if [ ! -e /var/www/html/wordpress_init_check ] ; then
 	
 	sed -i 's/listen = \/run\/php\/php8.3-fpm.sock/listen = 9000/g' /etc/php/8.3/fpm/pool.d/www.conf
 
+	wp theme install twentytwentytwo --activate --allow-root
+
 	if [ $? -eq 0 ]; then
 		touch wordpress_init_check
 	fi
