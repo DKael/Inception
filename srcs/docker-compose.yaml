@@ -42,6 +42,36 @@ services:
     volumes:
       - mariadb_volume:/var/lib/mysql
     restart: always
+  
+  redis:
+    container_name: redis
+    build: ./requirements/bonus/redis
+    image: redis:hyungdki
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+    networks:
+      - inception_network
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: always
+
+  ftp:
+    container_name: ftp
+    build: ./requirements/bonus/ftp
+    image: ftp:hyungdki
+    ports:
+      - "20:20"
+      - "21:21"
+      - "30000-31000:30000-31000"
+    env_file:
+      - .env
+    depends_on:
+      - wordpress
+    volumes:
+      - wordpress_volume:/var
+    #restart: always
 
 
 networks:

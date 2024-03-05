@@ -37,6 +37,15 @@ define( 'DB_CHARSET', 'utf8' );
 /** The database collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
 
+define( 'WP_REDIS_HOST', 'redis_host_here' );
+define( 'WP_REDIS_PORT', 'redis_port_here' );
+define( 'WP_REDIS_PREFIX', 'redis_prefix_here' );
+define( 'WP_REDIS_DATABASE' , 'redis_database_here' );
+define( 'WP_REDIS_TIMEOUT', 1 );
+define( 'WP_REDIS_READ_TIMEOUT', 1 );
+define( 'WP_REDIS_DISABLE_DROPIN_CHECK', true );
+define( 'WP_CACHE', true );
+
 /**#@+
  * Authentication unique keys and salts.
  *
@@ -82,7 +91,6 @@ $table_prefix = 'wp_';
 define( 'WP_DEBUG', false );
 
 /* Add any custom values between this line and the "stop editing" line. */
-
 
 
 /* That's all, stop editing! Happy publishing. */
