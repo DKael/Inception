@@ -5,24 +5,9 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/05 16:58:10 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/06 13:26:19 by hyungdki         ###   ########.fr        #
+#    Created: 2024/03/06 20:54:01 by hyungdki          #+#    #+#              #
+#    Updated: 2024/03/06 20:54:05 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM debian:bullseye
-
-COPY ./conf/run.sh /
-
-RUN apt update -y \
-	&& apt install -y dumb-init \
-					vim \
-					procps \
-					dnsutils \
-					iputils-ping \
-					net-tools \
-					openssl \
-	 				vsftpd \
-	&& chmod +x /run.sh
-
-CMD ["/usr/bin/dumb-init", "--", "/run.sh"]

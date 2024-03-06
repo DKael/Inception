@@ -11,7 +11,7 @@ if [ ! -e /usr/local/bin/wp ]; then
 		mkdir -p /usr/local/bin
 	fi
 
-	if [ ! -e /var/www/html/wordpress_init_check ] ; then
+	if [ ! -e /var/www/html/wordpress_init_check ]; then
 		sed -i -r "s/database_name_here/$MDB_DATABASE/1"   /wp-config.php
 		sed -i -r "s/username_here/$MDB_USER/1"  /wp-config.php
 		sed -i -r "s/password_here/$MDB_PASSWORD/1"    /wp-config.php

@@ -42,7 +42,7 @@ services:
     volumes:
       - mariadb_volume:/var/lib/mysql
     restart: always
-  
+
   redis:
     container_name: redis
     build: ./requirements/bonus/redis
@@ -70,7 +70,7 @@ services:
     depends_on:
       - wordpress
     volumes:
-      - wordpress_volume:/var
+      - wordpress_volume:/var/www/html
     #restart: always
 
 
