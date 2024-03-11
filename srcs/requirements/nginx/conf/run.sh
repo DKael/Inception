@@ -14,6 +14,13 @@ if [ ! -e /etc/nginx/conf.d/default.conf ]; then
     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/conf.d/default.conf
     
   echo '
+    location /adminer.php {
+      try_files $uri =404;
+      fastcgi_pass wordpress:8080;
+      include fastcgi_params;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+
     location ~ ^/.+\.php(/|$) {
       try_files $uri =404;
       fastcgi_pass wordpress:9000;

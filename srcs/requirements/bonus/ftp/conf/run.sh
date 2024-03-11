@@ -14,7 +14,7 @@ if [ ! -e /var/www/html/ftp_upload ]; then
 fi
 
 if [ ! -e /etc/ftp_init_check ]; then
-  adduser $FTP_USER_NAME --disabled-password
+  adduser $FTP_USER_NAME --gecos "First Last,RoomNumber,WorkPhone,HomePhone" --disabled-password
 
   echo "$FTP_USER_NAME:$FTP_USER_PASSWORD" | /usr/sbin/chpasswd
 
@@ -42,8 +42,9 @@ if [ ! -e /etc/ftp_init_check ]; then
   allow_writeable_chroot=YES
   local_root=/var/www/html
   pasv_enable=YES
-  pasv_min_port=30000
-  pasv_max_port=31000
+  pasv_min_port=60000
+  pasv_max_port=60005
+  pasv_address=127.0.0.1
   userlist_enable=YES
   userlist_deny=NO
   userlist_file=/etc/vsftpd.userlist" >> /etc/vsftpd.conf

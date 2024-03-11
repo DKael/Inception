@@ -64,14 +64,28 @@ services:
     ports:
       - "20:20"
       - "21:21"
-      - "30000-31000:30000-31000"
+      - "60000-60005:60000-60005"
     env_file:
       - .env
     depends_on:
       - wordpress
+    networks:
+      - inception_network
     volumes:
       - wordpress_volume:/var/www/html
-    #restart: always
+    restart: always
+
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    image: adminer:hyungdki
+    depends_on:
+      - mariadb
+    networks:
+      - inception_network
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: always
 
 
 networks:
