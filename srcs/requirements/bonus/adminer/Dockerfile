@@ -6,7 +6,7 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/06 20:54:01 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/11 21:22:48 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/12 17:01:01 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ RUN apt -y update \
 	&& apt install -y dumb-init \
 					vim \
                     procps \
-                    dnsutils \
 					iputils-ping \
                     net-tools \
 					wget \

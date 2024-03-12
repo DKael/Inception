@@ -6,7 +6,7 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/27 10:17:21 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/02 21:12:00 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/12 17:01:36 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,6 @@ RUN apt update -y \
 	&& apt install -y dumb-init \
 					vim \
                     procps \
-                    dnsutils \
 					iputils-ping \
                     net-tools \
 					mariadb-server \

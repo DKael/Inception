@@ -14,6 +14,24 @@ if [ ! -e /etc/nginx/conf.d/default.conf ]; then
     ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;" > /etc/nginx/conf.d/default.conf
     
   echo '
+    location /website.html {
+      proxy_pass https://website:3000;
+      proxy_http_version 1.1;
+      proxy_set_header Upgrade $http_upgrade;  
+      proxy_set_header Connection '\''upgrade'\'';  
+      proxy_set_header Host $host;  
+      proxy_cache_bypass $http_upgrade; 
+    }
+
+    location /website_files {
+        proxy_pass https://website:3000/website_files; # Express 컨테이너의 정적 파일 경로로 변경
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection '\''upgrade'\'';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
     location /adminer.php {
       try_files $uri =404;
       fastcgi_pass wordpress:8080;

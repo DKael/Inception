@@ -86,7 +86,32 @@ services:
     volumes:
       - wordpress_volume:/var/www/html
     restart: always
+  
+  website:
+    container_name: website
+    build: ./requirements/bonus/website
+    image: website:hyungdki
+    networks:
+      - inception_network
+    volumes:
+      - wordpress_volume:/var/www/html
+    restart: always
 
+  cadvisor:
+    container_name: cadvisor
+    build: ./requirements/bonus/cadvisor
+    image: cadvisor:hyungdki
+    ports:
+      - "8080:8080"
+    networks:
+      - inception_network
+    volumes:
+      - /:/rootfs:ro
+      - /sys:/sys:ro 
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/dis/:/dev/disk:ro
+      - /var/run:/var/run:ro
+    restart: always
 
 networks:
   inception_network:

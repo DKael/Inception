@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/05 11:16:12 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/12 17:01:26 by hyungdki         ###   ########.fr        #
+#    Created: 2024/03/05 16:58:10 by hyungdki          #+#    #+#              #
+#    Updated: 2024/03/12 18:13:09 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,8 @@ RUN apt update -y \
 					procps \
 					iputils-ping \
 					net-tools \
-	 				redis-server \
-	&& echo "maxmemory  256mb" >> /etc/redis/redis.conf \
-	&& echo "maxmemory-policy  allkeys-lfu" >> /etc/redis/redis.conf \
-	&& sed -i -r "s/bind 127.0.0.1/bind 0.0.0.0/" /etc/redis/redis.conf
+					wget \
+	&& wget https://github.com/google/cadvisor/releases/download/v0.39.3/cadvisor \
+	&& chmod +x cadvisor
 
-CMD ["/usr/bin/dumb-init", "--", "redis-server",  "--protected-mode", "no"]
+CMD ["/usr/bin/dumb-init", "--", "./cadvisor"]
