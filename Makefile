@@ -6,7 +6,7 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/24 22:27:49 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/13 19:36:31 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/13 22:01:55 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@ up :
 
 down : 
 	@docker compose -f ./srcs/docker-compose.yaml down -v --rmi all
-	@rm -rf ${HOME}/data/wordpress
-	@rm -rf ${HOME}/data/mariadb
+	@rm -rf ${HOME}/data
 
 start : 
 	@docker compose -f ./srcs/docker-compose.yaml start

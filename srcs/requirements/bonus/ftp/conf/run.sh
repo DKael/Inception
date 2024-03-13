@@ -9,8 +9,8 @@ if [ ! -e /var/log ]; then
 	mkdir -p /var/log
 fi
 
-if [ ! -e /var/www/ftp_upload ]; then
-  mkdir -p /var/www/ftp_upload
+if [ ! -e /var/www/html/ftp_upload ]; then
+  mkdir -p /var/www/html/ftp_upload
 fi
 
 if [ ! -e /etc/ftp_init_check ]; then
@@ -24,7 +24,7 @@ if [ ! -e /etc/ftp_init_check ]; then
 
   chmod a-w /var/www/html
 
-  chown $FTP_USER_NAME:$FTP_USER_NAME /var/www/ftp_upload
+  chown $FTP_USER_NAME:$FTP_USER_NAME /var/www/html/ftp_upload
 
   sed -i -r "s/#write_enable=YES/write_enable=YES/1"   /etc/vsftpd.conf
 
@@ -40,7 +40,7 @@ if [ ! -e /etc/ftp_init_check ]; then
 
   echo "
   allow_writeable_chroot=YES
-  local_root=/var/www
+  local_root=/var/www/html
   pasv_enable=YES
   pasv_min_port=60000
   pasv_max_port=60005
