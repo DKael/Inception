@@ -9,6 +9,8 @@ if [ ! -e /var/log ]; then
 	mkdir -p /var/log
 fi
 
+dockerize -wait tcp://wordpress:9000 -timeout 20s
+
 if [ ! -e /var/www/html/ftp_upload ]; then
   mkdir -p /var/www/html/ftp_upload
 fi
@@ -20,7 +22,7 @@ if [ ! -e /etc/ftp_init_check ]; then
 
   echo "$FTP_USER_NAME" | tee -a /etc/vsftpd.userlist
 
-  chown $FTP_USER_NAME:$FTP_USER_NAME /var/www/html/ftp_upload
+  chown -R $FTP_USER_NAME:$FTP_USER_NAME /var/www/html/ftp_upload
 
   sed -i -r "s/#write_enable=YES/write_enable=YES/1"   /etc/vsftpd.conf
 
