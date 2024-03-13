@@ -20,10 +20,6 @@ if [ ! -e /etc/ftp_init_check ]; then
 
   echo "$FTP_USER_NAME" | tee -a /etc/vsftpd.userlist
 
-  chown nobody:nogroup /var/www/html
-
-  chmod a-w /var/www/html
-
   chown $FTP_USER_NAME:$FTP_USER_NAME /var/www/html/ftp_upload
 
   sed -i -r "s/#write_enable=YES/write_enable=YES/1"   /etc/vsftpd.conf

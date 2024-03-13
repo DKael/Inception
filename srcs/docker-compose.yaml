@@ -69,6 +69,8 @@ services:
       - .env
     depends_on:
       - wordpress
+      - redis
+      - nginx
     networks:
       - inception_network
     volumes:

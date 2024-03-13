@@ -6,7 +6,7 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/24 22:27:49 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/13 22:01:55 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/13 22:19:29 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,9 @@ up :
 
 down : 
 	@docker compose -f ./srcs/docker-compose.yaml down -v --rmi all
+
+clear :
+	make down
 	@rm -rf ${HOME}/data
 
 start : 
