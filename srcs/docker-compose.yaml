@@ -124,7 +124,7 @@ volumes:
     name: wordpress_volume
     driver: local
     driver_opts:
-      device: /Users/kael/data/wordpress
+      device: ${HOME}/data/wordpress
       o: bind
       type: volumes
 
@@ -132,6 +132,6 @@ volumes:
     name: mariadb_volume
     driver: local
     driver_opts:
-      device: /Users/kael/data/mariadb
+      device: ${HOME}/data/mariadb
       o: bind
       type: volumes
