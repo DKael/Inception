@@ -15,7 +15,7 @@ if [ ! -e /usr/local/bin/wp ]; then
 		sed -i -r "s/database_name_here/$MDB_DATABASE/1"   /wp-config.php
 		sed -i -r "s/username_here/$MDB_USER/1"  /wp-config.php
 		sed -i -r "s/password_here/$MDB_PASSWORD/1"    /wp-config.php
-		sed -i -r "s/localhost/${WP_DB_HOST}:${MDB_PORT}/1"    /wp-config.php
+		sed -i -r "s/localhost/$WP_DB_HOST/1"    /wp-config.php
 		sed -i -r "s/redis_host_here/$RD_HOST/1"   /wp-config.php
 		sed -i -r "s/redis_port_here/$RD_PORT/1"  /wp-config.php
 		sed -i -r "s/redis_prefix_here/$RD_PREFIX/1"    /wp-config.php
