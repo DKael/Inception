@@ -48,9 +48,9 @@ if [ ! -e /usr/local/bin/wp ]; then
 
 	wp redis enable --allow-root
 
-	find . -type d \! -name ftp_upload -exec chown -R www-data:www-data {} \;
+	find . ! -path . \! -name ftp_upload -exec chown -R www-data:www-data {} \;
 
-	find . -type d \! -name ftp_upload -exec chmod -R 755 {} \;
+	find . ! -path . \! -name ftp_upload -exec chmod -R 755 {} \;
 fi
 
 /usr/sbin/php-fpm8.3 -F
