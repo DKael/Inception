@@ -6,15 +6,15 @@
 #    By: hyungdki <hyungdki@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/24 22:27:49 by hyungdki          #+#    #+#              #
-#    Updated: 2024/03/13 22:19:29 by hyungdki         ###   ########.fr        #
+#    Updated: 2024/03/14 15:22:19 by hyungdki         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 all : up
 
 up : 
-	@mkdir -p ${HOME}/data/wordpress
-	@mkdir -p ${HOME}/data/mariadb
+	@mkdir -p /home/hyungdki/data/wordpress
+	@mkdir -p /home/hyungdki/data/mariadb
 	@docker compose -f ./srcs/docker-compose.yaml up -d
 
 down : 
@@ -22,7 +22,7 @@ down :
 
 clear :
 	make down
-	@rm -rf ${HOME}/data
+	@rm -rf /home/hyungdki/data
 
 start : 
 	@docker compose -f ./srcs/docker-compose.yaml start

@@ -9,8 +9,6 @@ if [ ! -e /var/log ]; then
 	mkdir -p /var/log
 fi
 
-dockerize -wait tcp://wordpress:9000 -timeout 20s
-
 if [ ! -e /var/www/html/ftp_upload ]; then
   mkdir -p /var/www/html/ftp_upload
 fi
